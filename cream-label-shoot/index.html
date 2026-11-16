@@ -46,6 +46,21 @@
 
   .pending { font-size: 12px; color: #ddd; font-weight: 600; flex-shrink: 0; }
   .num { font-size: 20px; font-weight: 700; color: #e0e0e0; flex-shrink: 0; min-width: 22px; text-align: right; }
+
+  .total-box {
+    margin-top: 20px;
+    border: 2px solid var(--c); border-radius: 10px;
+    padding: 16px 18px;
+    display: grid;
+    grid-template-columns: 1fr repeat(4, auto);
+    gap: 8px 20px;
+    align-items: center;
+  }
+  .total-label { font-size: 12px; font-weight: 700; color: var(--c); letter-spacing: 0.06em; }
+  .total-stats { display: flex; gap: 20px; grid-column: 2 / -1; }
+  .ts { text-align: center; }
+  .tsl { font-size: 10px; color: #bbb; font-weight: 600; letter-spacing: 0.04em; }
+  .tsv { font-size: 16px; font-weight: 700; color: var(--c); display: block; margin-top: 1px; white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -159,6 +174,17 @@
     </div>
 
   </div>
+
+  <div class="total-box">
+    <div class="total-label">합계</div>
+    <div class="total-stats">
+      <div class="ts"><div class="tsl">조회수</div><div class="tsv">355.2만</div></div>
+      <div class="ts"><div class="tsl">저장</div><div class="tsv">1.5만</div></div>
+      <div class="ts"><div class="tsl">공유</div><div class="tsv">7.9만</div></div>
+      <div class="ts"><div class="tsl">저장+공유</div><div class="tsv">9.4만</div></div>
+    </div>
+  </div>
+
 </div>
 </body>
 </html>
