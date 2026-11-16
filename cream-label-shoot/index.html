@@ -61,6 +61,14 @@
   .ts { text-align: center; }
   .tsl { font-size: 10px; color: #bbb; font-weight: 600; letter-spacing: 0.04em; }
   .tsv { font-size: 16px; font-weight: 700; color: var(--c); display: block; margin-top: 1px; white-space: nowrap; }
+
+  @media (max-width: 520px) {
+    body { font-size: 14px; padding-block: 28px 48px; }
+    .item { flex-wrap: wrap; gap: 10px 16px; }
+    .stats, .stats-multi { order: 3; width: 100%; }
+    .total-box { display: flex; flex-direction: column; gap: 10px; }
+    .total-stats { flex-wrap: wrap; gap: 10px 20px; }
+  }
 </style>
 </head>
 <body>
