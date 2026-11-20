@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>오스테리아앰블</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --bg:      #F5F6F8;
+    --surface: #FFFFFF;
+    --border:  #E2E4E9;
+    --fg:      #18191C;
+    --fg2:     #5A5D66;
+    --accent:  #3D6B9E;
+    --chip-bg: #EEF3FA;
+    --good:    #2E7D56;
+    --warn:    #B5621A;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:      #0F1115;
+      --surface: #1C1E24;
+      --border:  #2A2D36;
+      --fg:      #E8E9EC;
+      --fg2:     #8A8D99;
+      --accent:  #6B9ED4;
+      --chip-bg: #1A2535;
+      --good:    #4ABA80;
+      --warn:    #E0893C;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:      #0F1115;
+    --surface: #1C1E24;
+    --border:  #2A2D36;
+    --fg:      #E8E9EC;
+    --fg2:     #8A8D99;
+    --accent:  #6B9ED4;
+    --chip-bg: #1A2535;
+    --good:    #4ABA80;
+    --warn:    #E0893C;
+    color-scheme: dark;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 32px;
+  }
+
+  .page-header { margin-bottom: 24px; }
+  .page-header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    color: var(--fg);
+  }
+  .page-header p {
+    font-size: 12px;
+    color: var(--fg2);
+    margin-top: 4px;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px 12px;
+    border-bottom: 1px solid var(--border);
+    gap: 12px;
+  }
+
+  .card-id {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--fg);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+  }
+  .card-id:hover { color: var(--accent); }
+  .card-id svg { flex-shrink: 0; opacity: 0.5; }
+
+  .price-chip {
+    font-size: 12px;
+    font-weight: 600;
+    background: var(--chip-bg);
+    color: var(--accent);
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 14px 16px;
+  }
+
+  .metric {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-right: 12px;
+  }
+  .metric + .metric {
+    padding-left: 12px;
+    border-left: 1px solid var(--border);
+  }
+
+  .metric-label {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--fg2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .metric-value {
+    font-size: 18px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--fg);
+    line-height: 1.2;
+  }
+  .metric-value.good { color: var(--good); }
+  .metric-value.warn { color: var(--warn); }
+
+  .metric-sub {
+    font-size: 10px;
+    color: var(--fg2);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .footer {
+    margin-top: 20px;
+    font-size: 11px;
+    color: var(--fg2);
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>오스테리아앰블</h1>
+  <p>2026-11-20 기준 · 조회수 6배 / 공유+저장 3.5배 튄 값 제외</p>
+</div>
+
+<div class="cards" id="cards"></div>
+<div class="footer" id="footer"></div>
+
+<script>
+const data = [
+  {
+    id: "hungryn_",
+    link: "https://www.instagram.com/hungryn_/reels/",
+    price: 550000,
+    cpv: 3.4,
+    avgViews: 163913,
+    saveSharePrice: 267,
+    avgSaveShare: 2061
+  },
+  {
+    id: "rorocouple_trip",
+    link: "https://www.instagram.com/rorocouple_trip/reels/",
+    price: 400000,
+    cpv: 3.8,
+    avgViews: 105590,
+    saveSharePrice: 87,
+    avgSaveShare: 4582
+  }
+];
+
+function fmt(n) { return n.toLocaleString('ko-KR'); }
+function cpvClass(v) { return v <= 5 ? 'good' : v > 8 ? 'warn' : ''; }
+
+const container = document.getElementById('cards');
+
+data.forEach(d => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-head">
+      <a class="card-id" href="${d.link}" target="_blank" rel="noopener">
+        @${d.id}
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M2 10L10 2M10 2H5M10 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <span class="price-chip">${fmt(d.price)}원</span>
+    </div>
+    <div class="metrics">
+      <div class="metric">
+        <span class="metric-label">CPV</span>
+        <span class="metric-value ${cpvClass(d.cpv)}">${d.cpv}원</span>
+        <span class="metric-sub">평균조회수 ${fmt(d.avgViews)}</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">저장공유단가</span>
+        <span class="metric-value">${d.saveSharePrice}원</span>
+        <span class="metric-sub">평균 ${fmt(d.avgSaveShare)}건</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">1만원당</span>
+        <span class="metric-value">${fmt(Math.round(10000 / d.cpv))}</span>
+        <span class="metric-sub">조회</span>
+      </div>
+    </div>
+  `;
+  container.appendChild(card);
+});
+
+document.getElementById('footer').textContent =
+  `오스테리아앰블 · 인플루언서 ${data.length}명`;
+</script>
+</body>
+</html>
