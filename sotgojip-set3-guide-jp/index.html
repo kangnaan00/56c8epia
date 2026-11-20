@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>チュクミサムギョプ 動画撮影ガイドライン</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root {
+  --bg: #111008;
+  --surface: #1C1510;
+  --surface2: #251D14;
+  --border: #362A1A;
+  --fg: #F0E6D2;
+  --muted: #8A7A68;
+  --amber: #E8863A;
+  --red: #C44B2B;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #FBF7F0; --surface: #EFE8DA; --surface2: #E5DACC;
+    --border: #CEC0A8; --fg: #1A1208; --muted: #7A6A52;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #FBF7F0; --surface: #EFE8DA; --surface2: #E5DACC;
+  --border: #CEC0A8; --fg: #1A1208; --muted: #7A6A52;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 15px; line-height: 1.65;
+  padding-inline: max(16px, env(safe-area-inset-left,0px));
+  padding-block: 0 56px;
+  max-width: 900px; margin-inline: auto;
+}
+.hd { padding: 44px 0 28px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+.hd-eye { font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
+.hd-title { font-family: "Noto Serif JP", serif; font-size: clamp(1.9rem, 5.5vw, 3rem); font-weight: 900; line-height: 1.1; margin-bottom: 12px; }
+.hd-title em { color: var(--amber); font-style: normal; }
+.hd-sub { color: var(--muted); font-size: 14px; max-width: 500px; }
+.sec-title { font-family: "Noto Serif JP", serif; font-size: 1.25rem; font-weight: 700; color: var(--fg); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+.sec-desc { color: var(--muted); font-size: 13.5px; margin-bottom: 20px; line-height: 1.6; }
+.sec-desc b { color: var(--amber); }
+section { margin-bottom: 44px; }
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px,1fr)); gap: 10px; }
+.menu-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 14px; }
+.menu-item span:first-child { font-size: 20px; }
+.pick-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 520px) { .pick-grid { grid-template-columns: 1fr; } }
+.pick-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.pick-badge { position: absolute; top: 10px; left: 10px; background: var(--amber); color: #fff; font-size: 12px; font-weight: 900; border-radius: 20px; padding: 4px 12px; letter-spacing: .03em; }
+.pick-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+.pick-title { font-family: "Noto Serif JP", serif; font-size: 20px; font-weight: 900; line-height: 1.3; }
+.pick-desc { font-size: 13px; color: var(--muted); line-height: 1.55; }
+.pick-video { width: 100%; border-radius: 8px; overflow: hidden; background: #000; aspect-ratio: 9/16; }
+.pick-video video { width: 100%; height: 100%; display: block; object-fit: cover; }
+.ref-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+.ref-label { font-weight: 700; font-size: 15px; }
+.ref-video { width: 100%; border-radius: 8px; overflow: hidden; background: #000; aspect-ratio: 9/16; }
+.ref-video video { width: 100%; height: 100%; display: block; object-fit: cover; }
+.shot { display: grid; grid-template-columns: 220px 1fr; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 18px; }
+@media (max-width: 540px) { .shot { grid-template-columns: 140px 1fr; } }
+.shot-img-wrap { position: relative; background: #000; overflow: hidden; }
+.shot-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.shot-num { position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,.75); color: #fff; font-size: 15px; font-weight: 900; border-radius: 20px; padding: 5px 14px; letter-spacing: .03em; }
+.shot-time { position: absolute; bottom: 12px; left: 12px; background: var(--amber); color: #fff; font-size: 13px; font-weight: 700; border-radius: 20px; padding: 4px 11px; }
+.shot-info { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.shot-info h3 { font-family: "Noto Serif JP", serif; font-size: 22px; font-weight: 900; }
+.shot-info p { font-size: 16px; color: var(--muted); line-height: 1.6; }
+.shot-info ul { list-style: none; display: flex; flex-direction: column; gap: 5px; padding: 0; }
+.shot-info li { font-size: 13px; display: flex; gap: 7px; align-items: flex-start; }
+.shot-info li::before { content: "✓"; color: var(--amber); font-weight: 700; flex-shrink: 0; }
+.store-info { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 20px; }
+.store-name { font-family: "Noto Serif JP", serif; font-size: 24px; font-weight: 900; margin-bottom: 4px; }
+.store-cat { font-size: 13px; color: var(--amber); font-weight: 700; margin-bottom: 14px; }
+.store-details { display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: var(--muted); margin-bottom: 16px; }
+.store-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.store-tag { background: var(--amber); color: #fff; font-size: 17px; font-weight: 900; border-radius: 20px; padding: 6px 16px; }
+.footer { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); line-height: 1.8; }
+.lang-tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:28px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.lang-tab{padding:8px 20px 10px;color:var(--muted);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .15s,border-color .15s;display:flex;flex-direction:column;align-items:center;gap:4px}
+.lang-tab:hover{color:var(--fg)}
+.lang-tab.active{color:var(--amber);border-bottom-color:var(--amber)}
+.lang-tab .flag{font-size:24px;line-height:1}
+.lang-tab .lname{font-size:11px;font-weight:700;letter-spacing:.03em}
+</style>
+</head>
+<body>
+
+<div class="lang-tabs">
+  <a href="../sotgojip-set3-guide/" class="lang-tab"><span class="flag">🇰🇷</span><span class="lname">한국어</span></a>
+  <a href="../sotgojip-set3-guide-tw/" class="lang-tab"><span class="flag">🇹🇼</span><span class="lname">繁中</span></a>
+  <a href="../sotgojip-set3-guide-jp/" class="lang-tab active"><span class="flag">🇯🇵</span><span class="lname">日本語</span></a>
+  <a href="../sotgojip-set3-guide-cn/" class="lang-tab"><span class="flag">🇨🇳</span><span class="lname">简中</span></a>
+</div>
+
+<div class="store-info">
+  <p class="store-name">솥고집 明洞店</p>
+  <p class="store-cat">サムギョプサル専門店</p>
+  <div class="store-details">
+    <span>📍 ソウル特別市中区明洞路 55 2階</span>
+    <span>🕐 営業時間 〜午後11:00</span>
+  </div>
+  <p style="font-size:16px;font-weight:900;color:var(--fg);margin-bottom:10px;">📌 必須ハッシュタグ</p>
+  <div class="store-tags">
+    <span class="store-tag">#솥고집</span>
+    <span class="store-tag">#明洞</span>
+    <span class="store-tag">#明洞グルメ</span>
+  </div>
+</div>
+
+<header class="hd">
+  <p class="hd-eye">📋 솥고집 撮影ガイドライン</p>
+  <h1 class="hd-title"><em>チュクミサムギョプ</em> 動画撮影ガイドライン</h1>
+  <p style="font-size:14px;font-weight:700;color:var(--acc,#E84B8E);margin:-8px 0 16px;">セット3 チュクミサムギョプ+チーズコーン</p>
+  <p class="hd-sub">以下の順序とアングルを参考に撮影してください。自然なリアクションと自分のスタイルを活かすことが最も重要です。</p>
+</header>
+
+<section>
+  <h2 class="sec-title">🎬 オープニング選択1 — 開始シーンを選んでください</h2>
+  <p class="sec-desc">以下の2つのうち<b>1つを選んで</b>動画の最初のシーンとして使用してください。</p>
+  <div class="pick-grid">
+    <div class="pick-card">
+      <div class="pick-body">
+        <span class="pick-badge">フック1</span>
+        <p class="pick-title">🧀 チーズコーン+チュクミ</p>
+        <p class="pick-desc">チュクミにコーンチーズを一度に注ぎ込むのがポイント。</p>
+        <div class="pick-video"><video src="../sotgojip-set3-guide/hook1.mp4" controls playsinline preload="metadata"></video></div>
+      </div>
+    </div>
+    <div class="pick-card">
+      <div class="pick-body">
+        <span class="pick-badge">フック2</span>
+        <p class="pick-title">🧀 チーズコーンを持ち上げる</p>
+        <p class="pick-desc">スプーン2本でチーズコーンを上に引き伸ばすイメージ。</p>
+        <div class="pick-video" style="background:#000;display:flex;align-items:center;justify-content:center;"><img src="../sotgojip-set3-guide/hook2.jpg" alt="チーズコーンを持ち上げる" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-title">📼 参考動画</h2>
+  <p class="sec-desc">撮影前に以下の動画を参考にしてください。構成と流れを把握した後、自分のスタイルで撮影してください。</p>
+  <div style="max-width:360px;">
+    <div class="ref-card">
+      <p class="ref-label">솥고집 チュクミサムギョプ 参考動画</p>
+      <div class="ref-video"><video src="../sotgojip-set3-guide/ref1.mp4" controls playsinline preload="metadata"></video></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-title">🍽️ 提供メニュー</h2>
+  <p class="sec-desc">以下のメニューを動画に一つずつ収めてください。</p>
+  <div class="menu-grid">
+    <div class="menu-item"><span>🐙</span><span>チュクミ</span></div>
+    <div class="menu-item"><span>🥩</span><span>サムギョプサル</span></div>
+    <div class="menu-item"><span>🌿</span><span>セリ</span></div>
+    <div class="menu-item"><span>🧀</span><span>チーズコーン</span></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-title">🎥 必須シーン11カット</h2>
+  <p class="sec-desc">参考動画を参考に、以下の11シーンすべてを撮影してください。</p>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot1.jpg" alt="チーズコーン+チュクミ オープニング">
+      <span class="shot-num">01</span><span class="shot-time">オープニング</span></div>
+    <div class="shot-info">
+      <h3>チュクミにチーズを一度に注ぐ</h3>
+      <p>チュクミにコーンチーズを一度に注ぎ込むのがポイント。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot2.jpg" alt="チーズを持ち上げる">
+      <span class="shot-num">02</span><span class="shot-time">クローズアップ</span></div>
+    <div class="shot-info">
+      <h3>チーズを持ち上げる</h3>
+      <p>スプーン2本でチーズコーンを持ち上げる近接クローズアップ。伸びるチーズの糸がポイント。</p>
+      <ul><li>チーズが伸びる瞬間を正確に捉える</li><li>下のチュクミも一緒に見えるように</li></ul>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot3.jpg" alt="チュクミ登場">
+      <span class="shot-num">03</span><span class="shot-time">セッティング</span></div>
+    <div class="shot-info">
+      <h3>チュクミ登場</h3>
+      <ul><li>セリの緑色と赤いチュクミのコントラストを活かす</li><li>鍋の上から見下ろすアングルがおすすめ</li><li>野菜たっぷりの豊かさを強調</li></ul>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot4.jpg" alt="チュクミよく焼けたシーン">
+      <span class="shot-num">04</span><span class="shot-time">クライマックス</span></div>
+    <div class="shot-info">
+      <h3>チュクミよく焼けたシーン</h3>
+      <p>メニューが一目でわかるよう美味しそうに撮影する。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot5.jpg" alt="チュクミをつかみ上げる">
+      <span class="shot-num">05</span><span class="shot-time">クローズアップ</span></div>
+    <div class="shot-info">
+      <h3>チュクミをつかみ上げる</h3>
+      <p>完成したチュクミをトングでいっぱいつかみ上げるクローズアップ。</p>
+      <ul><li>トングにチュクミをたっぷり入れて持ち上げる</li><li>背景の鍋全体を少しボカす</li></ul>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot6.jpg" alt="チーズ+チュクミ">
+      <span class="shot-num">06</span><span class="shot-time">レファレンス</span></div>
+    <div class="shot-info">
+      <h3>チーズ+チュクミ</h3>
+      <p>チュクミ+サムギョプサル+チーズを一緒に持ち上げる。チーズがたっぷり伸びるように。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot7.jpg" alt="包んで食べる">
+      <span class="shot-num">07</span><span class="shot-time">食事シーン</span></div>
+    <div class="shot-info">
+      <h3>包んで食べる</h3>
+      <p>セリ+包み野菜+チーズ+サムギョプサル+チュクミでチーズ包みを作って食べるシーン。</p>
+      <ul><li>手の上に包み材料をたっぷり乗せるように</li><li>背景に鍋全体が少し見えるように</li><li>一口食べるリアクションも一緒に撮影</li></ul>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot8.jpg" alt="チーズチャーハン登場">
+      <span class="shot-num">08</span><span class="shot-time">サイドメニュー</span></div>
+    <div class="shot-info">
+      <h3>チーズチャーハン登場</h3>
+      <p>チャーハンを半分に折ってから開くシーン。チーズチャーハンがよく見えるように。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot9.jpg" alt="チーズチャーハンのチーズ伸ばし">
+      <span class="shot-num">09</span><span class="shot-time">レファレンス</span></div>
+    <div class="shot-info">
+      <h3>チーズチャーハンのチーズ伸ばし</h3>
+      <p>チーズチャーハンを大きくすくってチーズが伸びる様子を見せる。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot10.jpg" alt="茶碗蒸し登場">
+      <span class="shot-num">10</span><span class="shot-time">クローズアップ</span></div>
+    <div class="shot-info">
+      <h3>茶碗蒸し登場</h3>
+      <p>置いた瞬間にふわふわと茶碗蒸しが揺れるように、またはスプーンで上部を叩いてプリンのように見せる。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot11.jpg" alt="茶碗蒸し+チュクミサムギョプ">
+      <span class="shot-num">11</span><span class="shot-time">フィナーレ</span></div>
+    <div class="shot-info">
+      <h3>茶碗蒸し+チュクミサムギョプ</h3>
+      <p>茶碗蒸しを大きくすくって上にチュクミを乗せて食べる。</p>
+    </div>
+  </div>
+
+</section>
+
+<div class="footer">
+  솥고집 明洞店 · ソウル特別市中区明洞路 55 2階<br>
+  撮影に関するお問い合わせ：커넥팅
+</div>
+
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>주꾸미삼겹 影片拍攝指南</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+:root {
+  --bg: #111008;
+  --surface: #1C1510;
+  --surface2: #251D14;
+  --border: #362A1A;
+  --fg: #F0E6D2;
+  --muted: #8A7A68;
+  --amber: #E8863A;
+  --red: #C44B2B;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #FBF7F0; --surface: #EFE8DA; --surface2: #E5DACC;
+    --border: #CEC0A8; --fg: #1A1208; --muted: #7A6A52;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #FBF7F0; --surface: #EFE8DA; --surface2: #E5DACC;
+  --border: #CEC0A8; --fg: #1A1208; --muted: #7A6A52;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 15px; line-height: 1.65;
+  padding-inline: max(16px, env(safe-area-inset-left,0px));
+  padding-block: 0 56px;
+  max-width: 900px; margin-inline: auto;
+}
+.hd { padding: 44px 0 28px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+.hd-eye { font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
+.hd-title { font-family: "Noto Serif TC", serif; font-size: clamp(1.9rem, 5.5vw, 3rem); font-weight: 900; line-height: 1.1; margin-bottom: 12px; }
+.hd-title em { color: var(--amber); font-style: normal; }
+.hd-sub { color: var(--muted); font-size: 14px; max-width: 500px; }
+.sec-title { font-family: "Noto Serif TC", serif; font-size: 1.25rem; font-weight: 700; color: var(--fg); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+.sec-desc { color: var(--muted); font-size: 13.5px; margin-bottom: 20px; line-height: 1.6; }
+.sec-desc b { color: var(--amber); }
+section { margin-bottom: 44px; }
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px,1fr)); gap: 10px; }
+.menu-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 14px; }
+.menu-item span:first-child { font-size: 20px; }
+.pick-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 520px) { .pick-grid { grid-template-columns: 1fr; } }
+.pick-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.pick-badge { position: absolute; top: 10px; left: 10px; background: var(--amber); color: #fff; font-size: 12px; font-weight: 900; border-radius: 20px; padding: 4px 12px; letter-spacing: .03em; }
+.pick-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+.pick-title { font-family: "Noto Serif TC", serif; font-size: 20px; font-weight: 900; line-height: 1.3; }
+.pick-desc { font-size: 13px; color: var(--muted); line-height: 1.55; }
+.pick-video { width: 100%; border-radius: 8px; overflow: hidden; background: #000; aspect-ratio: 9/16; }
+.pick-video video { width: 100%; height: 100%; display: block; object-fit: cover; }
+.ref-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+.ref-label { font-weight: 700; font-size: 15px; }
+.ref-video { width: 100%; border-radius: 8px; overflow: hidden; background: #000; aspect-ratio: 9/16; }
+.ref-video video { width: 100%; height: 100%; display: block; object-fit: cover; }
+.shot { display: grid; grid-template-columns: 220px 1fr; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 18px; }
+@media (max-width: 540px) { .shot { grid-template-columns: 140px 1fr; } }
+.shot-img-wrap { position: relative; background: #000; overflow: hidden; }
+.shot-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.shot-num { position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,.75); color: #fff; font-size: 15px; font-weight: 900; border-radius: 20px; padding: 5px 14px; letter-spacing: .03em; }
+.shot-time { position: absolute; bottom: 12px; left: 12px; background: var(--amber); color: #fff; font-size: 13px; font-weight: 700; border-radius: 20px; padding: 4px 11px; }
+.shot-info { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.shot-info h3 { font-family: "Noto Serif TC", serif; font-size: 22px; font-weight: 900; }
+.shot-info p { font-size: 16px; color: var(--muted); line-height: 1.6; }
+.shot-info ul { list-style: none; display: flex; flex-direction: column; gap: 5px; padding: 0; }
+.shot-info li { font-size: 13px; display: flex; gap: 7px; align-items: flex-start; }
+.shot-info li::before { content: "✓"; color: var(--amber); font-weight: 700; flex-shrink: 0; }
+.store-info { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 20px; }
+.store-name { font-family: "Noto Serif TC", serif; font-size: 24px; font-weight: 900; margin-bottom: 4px; }
+.store-cat { font-size: 13px; color: var(--amber); font-weight: 700; margin-bottom: 14px; }
+.store-details { display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: var(--muted); margin-bottom: 16px; }
+.store-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.store-tag { background: var(--amber); color: #fff; font-size: 17px; font-weight: 900; border-radius: 20px; padding: 6px 16px; }
+.footer { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); line-height: 1.8; }
+.lang-tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:28px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.lang-tab{padding:8px 20px 10px;color:var(--muted);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .15s,border-color .15s;display:flex;flex-direction:column;align-items:center;gap:4px}
+.lang-tab:hover{color:var(--fg)}
+.lang-tab.active{color:var(--amber);border-bottom-color:var(--amber)}
+.lang-tab .flag{font-size:24px;line-height:1}
+.lang-tab .lname{font-size:11px;font-weight:700;letter-spacing:.03em}
+</style>
+</head>
+<body>
+
+<div class="lang-tabs">
+  <a href="../sotgojip-set3-guide/" class="lang-tab"><span class="flag">🇰🇷</span><span class="lname">한국어</span></a>
+  <a href="../sotgojip-set3-guide-tw/" class="lang-tab active"><span class="flag">🇹🇼</span><span class="lname">繁中</span></a>
+  <a href="../sotgojip-set3-guide-jp/" class="lang-tab"><span class="flag">🇯🇵</span><span class="lname">日本語</span></a>
+  <a href="../sotgojip-set3-guide-cn/" class="lang-tab"><span class="flag">🇨🇳</span><span class="lname">简中</span></a>
+</div>
+
+<div class="store-info">
+  <p class="store-name">솥고집 明洞店</p>
+  <p class="store-cat">三層肉專門店</p>
+  <div class="store-details">
+    <span>📍 首爾特別市中區明洞路 55 2樓</span>
+    <span>🕐 營業時間 ~晚上11:00</span>
+  </div>
+  <p style="font-size:16px;font-weight:900;color:var(--fg);margin-bottom:10px;">📌 必要主題標籤</p>
+  <div class="store-tags">
+    <span class="store-tag">#솥고집</span>
+    <span class="store-tag">#明洞</span>
+    <span class="store-tag">#明洞美食</span>
+  </div>
+</div>
+
+<header class="hd">
+  <p class="hd-eye">📋 솥고집 拍攝指南</p>
+  <h1 class="hd-title"><em>주꾸미三層肉</em> 影片拍攝指南</h1>
+  <p style="font-size:14px;font-weight:700;color:var(--acc,#E84B8E);margin:-8px 0 16px;">套餐3 주꾸미三層肉+起司球</p>
+  <p class="hd-sub">請參考以下順序和角度進行拍攝。最重要的是展現自然反應和個人風格。</p>
+</header>
+
+<section>
+  <h2 class="sec-title">🎬 開場選1 — 選擇開場鏡頭</h2>
+  <p class="sec-desc">請從以下兩種中<b>選擇一種</b>作為影片的第一個鏡頭。</p>
+  <div class="pick-grid">
+    <div class="pick-card">
+      <div class="pick-body">
+        <span class="pick-badge">Hook 1</span>
+        <p class="pick-title">🧀 起司球+주꾸미</p>
+        <p class="pick-desc">一次性將玉米起司倒入주꾸미是重點。</p>
+        <div class="pick-video"><video src="../sotgojip-set3-guide/hook1.mp4" controls playsinline preload="metadata"></video></div>
+      </div>
+    </div>
+    <div class="pick-card">
+      <div class="pick-body">
+        <span class="pick-badge">Hook 2</span>
+        <p class="pick-title">🧀 提起起司球</p>
+        <p class="pick-desc">用2個湯匙將起司球向上拉伸的畫面。</p>
+        <div class="pick-video" style="background:#000;display:flex;align-items:center;justify-content:center;"><img src="../sotgojip-set3-guide/hook2.jpg" alt="提起起司球" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-title">📼 拍攝參考影片</h2>
+  <p class="sec-desc">拍攝前請參考以下影片，熟悉構成和流程後，以自己的風格拍攝即可。</p>
+  <div style="max-width:360px;">
+    <div class="ref-card">
+      <p class="ref-label">솥고집 주꾸미三層肉 參考影片</p>
+      <div class="ref-video"><video src="../sotgojip-set3-guide/ref1.mp4" controls playsinline preload="metadata"></video></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-title">🍽️ 提供菜單</h2>
+  <p class="sec-desc">請在影片中逐一展示以下菜單。</p>
+  <div class="menu-grid">
+    <div class="menu-item"><span>🐙</span><span>주꾸미</span></div>
+    <div class="menu-item"><span>🥩</span><span>三層肉</span></div>
+    <div class="menu-item"><span>🌿</span><span>水芹菜</span></div>
+    <div class="menu-item"><span>🧀</span><span>起司球</span></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-title">🎥 必拍11個鏡頭</h2>
+  <p class="sec-desc">請參考參考影片，拍攝以下全部11個鏡頭。</p>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot1.jpg" alt="起司球+주꾸미 開場">
+      <span class="shot-num">01</span><span class="shot-time">開場</span></div>
+    <div class="shot-info">
+      <h3>一次性倒入주꾸미起司</h3>
+      <p>一次性將玉米起司倒入주꾸미是重點。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot2.jpg" alt="提起起司">
+      <span class="shot-num">02</span><span class="shot-time">特寫</span></div>
+    <div class="shot-info">
+      <h3>提起起司</h3>
+      <p>用兩支湯匙提起起司球的近距離特寫，拉伸的起司絲是亮點。</p>
+      <ul><li>精確捕捉起司拉伸的瞬間</li><li>確保下方的주꾸미也能看到</li></ul>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot3.jpg" alt="주꾸미登場">
+      <span class="shot-num">03</span><span class="shot-time">擺盤</span></div>
+    <div class="shot-info">
+      <h3>주꾸미登場</h3>
+      <ul><li>凸顯水芹菜的綠色與紅色주꾸미的對比</li><li>建議從鍋上方俯拍的角度</li><li>強調蔬菜豐盛感</li></ul>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot4.jpg" alt="주꾸미完全熟透">
+      <span class="shot-num">04</span><span class="shot-time">高潮</span></div>
+    <div class="shot-info">
+      <h3>주꾸미完全熟透的鏡頭</h3>
+      <p>讓菜單一目了然，拍出美味感。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot5.jpg" alt="夾起주꾸미">
+      <span class="shot-num">05</span><span class="shot-time">特寫</span></div>
+    <div class="shot-info">
+      <h3>夾起주꾸미</h3>
+      <p>用夾子夾滿完成的주꾸미的近距離特寫。</p>
+      <ul><li>用夾子夾滿주꾸미後提起</li><li>背景整個鍋稍微虛化</li></ul>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot6.jpg" alt="起司+주꾸미">
+      <span class="shot-num">06</span><span class="shot-time">參考</span></div>
+    <div class="shot-info">
+      <h3>起司+주꾸미</h3>
+      <p>一起提起주꾸미+三層肉+起司，大量起司拉伸效果。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot7.jpg" alt="包生菜吃">
+      <span class="shot-num">07</span><span class="shot-time">吃播</span></div>
+    <div class="shot-info">
+      <h3>包生菜吃</h3>
+      <p>用水芹菜+生菜+起司+三層肉+주꾸미製作起司包飯後吃的場景。</p>
+      <ul><li>確保手上的包飯材料豐盛地疊放</li><li>背景中整個鍋稍微可見</li><li>一起拍攝吃一口的反應</li></ul>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot8.jpg" alt="起司炒飯登場">
+      <span class="shot-num">08</span><span class="shot-time">配菜</span></div>
+    <div class="shot-info">
+      <h3>起司炒飯登場</h3>
+      <p>將炒飯對折再打開的場景，讓起司炒飯清晰可見。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot9.jpg" alt="起司炒飯拉起司">
+      <span class="shot-num">09</span><span class="shot-time">參考</span></div>
+    <div class="shot-info">
+      <h3>起司炒飯拉起司</h3>
+      <p>大勺挖起司炒飯，展示起司拉伸效果。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot10.jpg" alt="蒸蛋登場">
+      <span class="shot-num">10</span><span class="shot-time">特寫</span></div>
+    <div class="shot-info">
+      <h3>蒸蛋登場</h3>
+      <p>放下瞬間讓蒸蛋蓬鬆地搖晃，或用湯匙敲打上部，使其看起來像布丁。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-img-wrap"><img src="../sotgojip-set3-guide/shot11.jpg" alt="蒸蛋+주꾸미三層肉">
+      <span class="shot-num">11</span><span class="shot-time">結尾</span></div>
+    <div class="shot-info">
+      <h3>蒸蛋+주꾸미三層肉</h3>
+      <p>大勺挖取蒸蛋，放上주꾸미後吃。</p>
+    </div>
+  </div>
+
+</section>
+
+<div class="footer">
+  솥고집 明洞店 · 首爾特別市中區明洞路 55 2樓<br>
+  拍攝相關諮詢：커넥팅
+</div>
+
+</body>
+</html>
