@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>쭈꾸미삼겹 영상가이드라인</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root {
+  --bg: #111008;
+  --surface: #1C1510;
+  --surface2: #251D14;
+  --border: #362A1A;
+  --fg: #F0E6D2;
+  --muted: #8A7A68;
+  --amber: #E8863A;
+  --red: #C44B2B;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #FBF7F0; --surface: #EFE8DA; --surface2: #E5DACC;
+    --border: #CEC0A8; --fg: #1A1208; --muted: #7A6A52;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #FBF7F0; --surface: #EFE8DA; --surface2: #E5DACC;
+  --border: #CEC0A8; --fg: #1A1208; --muted: #7A6A52;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 15px; line-height: 1.65;
+  padding-inline: max(16px, env(safe-area-inset-left,0px));
+  padding-block: 0 56px;
+  max-width: 900px; margin-inline: auto;
+}
+
+/* HEADER */
+.hd { padding: 44px 0 28px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+.hd-eye { font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
+.hd-title { font-family: "Noto Serif KR", serif; font-size: clamp(1.9rem, 5.5vw, 3rem); font-weight: 900; line-height: 1.1; margin-bottom: 12px; }
+.hd-title em { color: var(--amber); font-style: normal; }
+.hd-sub { color: var(--muted); font-size: 14px; max-width: 500px; }
+
+/* SECTION TITLE */
+.sec-title {
+  font-family: "Noto Serif KR", serif;
+  font-size: 1.25rem; font-weight: 700;
+  color: var(--fg); margin-bottom: 6px;
+  display: flex; align-items: center; gap: 8px;
+}
+.sec-desc { color: var(--muted); font-size: 13.5px; margin-bottom: 20px; line-height: 1.6; }
+.sec-desc b { color: var(--amber); }
+section { margin-bottom: 44px; }
+
+/* NOTICE */
+.notice {
+  background: rgba(196,75,43,.1); border: 1px solid var(--red);
+  border-radius: 10px; padding: 14px 18px;
+  font-size: 13.5px; margin-bottom: 32px;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+
+/* MENU */
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px,1fr)); gap: 10px; }
+.menu-item {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 700; font-size: 14px;
+}
+.menu-item span:first-child { font-size: 20px; }
+
+/* OPENING PICK */
+.pick-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 520px) { .pick-grid { grid-template-columns: 1fr; } }
+.pick-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+}
+.pick-badge {
+  position: absolute; top: 10px; left: 10px;
+  background: var(--amber); color: #fff;
+  font-size: 12px; font-weight: 900;
+  border-radius: 20px; padding: 4px 12px;
+  letter-spacing: .03em;
+}
+.pick-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+.pick-title { font-family: "Noto Serif KR", serif; font-size: 20px; font-weight: 900; line-height: 1.3; }
+.pick-desc { font-size: 13px; color: var(--muted); line-height: 1.55; }
+.pick-video {
+  width: 100%; border-radius: 8px; overflow: hidden;
+  background: #000; aspect-ratio: 9/16;
+}
+.pick-video video { width: 100%; height: 100%; display: block; object-fit: cover; }
+.pick-video-label { font-size: 11px; color: var(--muted); margin-bottom: 4px; letter-spacing: .05em; }
+
+/* REF GRID */
+.ref-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 520px) { .ref-grid { grid-template-columns: 1fr; } }
+.ref-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden; padding: 14px 16px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.ref-label { font-weight: 700; font-size: 15px; }
+.ref-video {
+  width: 100%; border-radius: 8px; overflow: hidden;
+  background: #000; aspect-ratio: 9/16;
+}
+.ref-video video { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+/* SHOT LIST */
+.shot {
+  display: grid; grid-template-columns: 220px 1fr;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden; margin-bottom: 18px;
+}
+@media (max-width: 540px) { .shot { grid-template-columns: 140px 1fr; } }
+.shot-img-wrap {
+  position: relative; background: #000;
+  overflow: hidden;
+}
+.shot-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.shot-num {
+  position: absolute; top: 12px; left: 12px;
+  background: rgba(0,0,0,.75); color: #fff;
+  font-size: 15px; font-weight: 900; border-radius: 20px;
+  padding: 5px 14px; letter-spacing: .03em;
+}
+.shot-time {
+  position: absolute; bottom: 12px; left: 12px;
+  background: var(--amber); color: #fff;
+  font-size: 13px; font-weight: 700; border-radius: 20px;
+  padding: 4px 11px;
+}
+.shot-info { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.shot-info h3 { font-family: "Noto Serif KR", serif; font-size: 22px; font-weight: 900; }
+.shot-info p { font-size: 16px; color: var(--muted); line-height: 1.6; }
+.shot-info ul { list-style: none; display: flex; flex-direction: column; gap: 5px; padding: 0; }
+.shot-info li { font-size: 13px; display: flex; gap: 7px; align-items: flex-start; }
+.shot-info li::before { content: "✓"; color: var(--amber); font-weight: 700; flex-shrink: 0; }
+
+/* STORE INFO */
+.store-info {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px 22px;
+  margin-bottom: 20px;
+}
+.store-name { font-family: "Noto Serif KR", serif; font-size: 24px; font-weight: 900; margin-bottom: 4px; }
+.store-cat { font-size: 13px; color: var(--amber); font-weight: 700; margin-bottom: 14px; }
+.store-details { display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: var(--muted); margin-bottom: 16px; }
+.store-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.store-tag { background: var(--amber); color: #fff; font-size: 17px; font-weight: 900; border-radius: 20px; padding: 6px 16px; }
+
+/* FOOTER */
+.footer { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); line-height: 1.8; }
+
+.lang-tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:28px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.lang-tab{padding:8px 20px 10px;color:var(--muted);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .15s,border-color .15s;display:flex;flex-direction:column;align-items:center;gap:4px}
+.lang-tab:hover{color:var(--fg)}
+.lang-tab.active{color:var(--amber);border-bottom-color:var(--amber)}
+.lang-tab .flag{font-size:24px;line-height:1}
+.lang-tab .lname{font-size:11px;font-weight:700;letter-spacing:.03em}
+</style>
+</head>
+<body>
+
+<div class="lang-tabs">
+  <a href="../sotgojip-set3-guide/" class="lang-tab active"><span class="flag">🇰🇷</span><span class="lname">한국어</span></a>
+  <a href="../sotgojip-set3-guide-tw/" class="lang-tab"><span class="flag">🇹🇼</span><span class="lname">繁中</span></a>
+  <a href="../sotgojip-set3-guide-jp/" class="lang-tab"><span class="flag">🇯🇵</span><span class="lname">日本語</span></a>
+  <a href="../sotgojip-set3-guide-cn/" class="lang-tab"><span class="flag">🇨🇳</span><span class="lname">简中</span></a>
+</div>
+
+<div class="store-info">
+  <p class="store-name">솥고집 명동점</p>
+  <p class="store-cat">삼겹살 전문점</p>
+  <div class="store-details">
+    <span>📍 서울특별시 중구 명동길 55 2층</span>
+    <span>🕐 영업시간 ~오후 11:00</span>
+  </div>
+  <p style="font-size:16px;font-weight:900;color:var(--fg);margin-bottom:10px;">📌 필수 해시태그</p>
+  <div class="store-tags">
+    <span class="store-tag">#솥고집</span>
+    <span class="store-tag">#명동</span>
+    <span class="store-tag">#명동맛집</span>
+  </div>
+</div>
+
+<header class="hd">
+  <p class="hd-eye">📋 솥고집 촬영 가이드라인</p>
+  <h1 class="hd-title"><em>쭈꾸미삼겹</em> 영상가이드라인</h1>
+  <p style="font-size:14px;font-weight:700;color:var(--acc,#E84B8E);margin:-8px 0 16px;">세트3 쭈꾸미삼겹+치즈콘</p>
+  <p class="hd-sub">아래 순서와 앵글을 참고해 촬영해 주세요. 자연스러운 리액션과 본인 스타일을 살리는 게 가장 중요합니다.</p>
+</header>
+
+<section>
+  <h2 class="sec-title">🎬 썸네일 택 — 오프닝 장면</h2>
+  <p class="sec-desc">
+    아래 영상을 영상 첫 장면(오프닝 훅)으로 사용해 주세요. 치즈콘을 쭈꾸미 위에서 들어올리는 가장 임팩트 있는 장면입니다.
+  </p>
+  <div style="max-width:360px;">
+    <div class="pick-card">
+      <div class="pick-body">
+        <span class="pick-badge" style="position:static;display:inline-block;margin-bottom:4px;">훅 1</span>
+        <p class="pick-title">🧀 치즈콘+쭈꾸미</p>
+        <p class="pick-desc">치즈콘을 국자로 들어올리며 쭈꾸미 전체가 드러나는 임팩트 비주얼. 욕망감으로 시작.</p>
+        <div class="pick-video"><video src="hook1.mp4" controls playsinline preload="metadata"></video></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-title">📼 가이드라인 레퍼런스</h2>
+  <p class="sec-desc">촬영 전 아래 영상을 참고해 주세요. 구성과 흐름을 익힌 뒤 본인 스타일로 촬영하면 됩니다.</p>
+  <div class="ref-grid">
+    <div class="ref-card">
+      <p class="ref-label">레퍼런스 1</p>
+      <div class="ref-video"><video src="ref1.mp4" controls playsinline preload="metadata"></video></div>
+    </div>
+    <div class="ref-card">
+      <p class="ref-label">레퍼런스 2</p>
+      <div class="ref-video"><video src="ref2.mp4" controls playsinline preload="metadata"></video></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-title">🍽️ 제공 메뉴</h2>
+  <p class="sec-desc">아래 메뉴를 영상에 하나씩 담아주세요.</p>
+  <div class="menu-grid">
+    <div class="menu-item"><span>🐙</span><span>쭈꾸미</span></div>
+    <div class="menu-item"><span>🥩</span><span>삼겹살</span></div>
+    <div class="menu-item"><span>🌿</span><span>미나리</span></div>
+    <div class="menu-item"><span>🧀</span><span>치즈콘</span></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-title">🎥 필수 장면 6컷</h2>
+  <p class="sec-desc">레퍼런스 영상을 참고해 아래 6개 장면을 모두 촬영해주세요.</p>
+
+  <!-- Shot 1 -->
+  <div class="shot">
+    <div class="shot-img-wrap">
+      <img src="shot1.jpg" alt="쭈꾸미 붓기">
+      <span class="shot-num">01</span>
+      <span class="shot-time">오프닝</span>
+    </div>
+    <div class="shot-info">
+      <h3>쭈꾸미 붓기</h3>
+      <p>삼겹살 링이 세팅된 솥 중앙에 양념 쭈꾸미를 볼째로 쏟아붓는 장면.</p>
+      <ul>
+        <li>솥 전체와 볼을 한 프레임에 담기</li>
+        <li>볼에서 쭈꾸미가 흘러내리는 타이밍 포착</li>
+        <li>삼겹살 링이 꽉 찬 느낌 강조</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Shot 2 -->
+  <div class="shot">
+    <div class="shot-img-wrap">
+      <img src="shot2.jpg" alt="미나리 올리기">
+      <span class="shot-num">02</span>
+      <span class="shot-time">세팅</span>
+    </div>
+    <div class="shot-info">
+      <h3>미나리 한 움큼</h3>
+      <p>미나리를 한 아름 집어 쭈꾸미 위에 올리는 장면. 싱그러운 색감 대비가 포인트.</p>
+      <ul>
+        <li>미나리의 초록빛과 붉은 쭈꾸미 색 대비 살리기</li>
+        <li>솥 위쪽에서 내려다보는 앵글 추천</li>
+        <li>채소 가득한 풍성함 강조</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Shot 3 -->
+  <div class="shot">
+    <div class="shot-img-wrap">
+      <img src="shot3.jpg" alt="볶는 장면">
+      <span class="shot-num">03</span>
+      <span class="shot-time">조리</span>
+    </div>
+    <div class="shot-info">
+      <h3>함께 볶기</h3>
+      <p>두 스패출라로 쭈꾸미+미나리를 함께 볶는 장면. 솥의 열기와 움직임이 느껴지도록.</p>
+      <ul>
+        <li>스패출라 두 개 모두 화면에 담기</li>
+        <li>삼겹살 링이 테두리에 살짝 보이도록</li>
+        <li>볶는 소리 ASMR 활용 추천</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Shot 4 -->
+  <div class="shot">
+    <div class="shot-img-wrap">
+      <img src="shot4.jpg" alt="연기 올라오는 장면">
+      <span class="shot-num">04</span>
+      <span class="shot-time">클라이맥스</span>
+    </div>
+    <div class="shot-info">
+      <h3>연기 모락모락</h3>
+      <p>솥에서 연기가 올라오는 완성 직전. 뜨거운 불맛과 풍성한 비주얼의 절정.</p>
+      <ul>
+        <li>연기를 역광으로 살리는 앵글</li>
+        <li>삼겹살 링과 쭈꾸미 함께 보이도록</li>
+        <li>연기 흐르는 방향에 카메라 위치</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Shot 5 -->
+  <div class="shot">
+    <div class="shot-img-wrap">
+      <img src="shot5.jpg" alt="쭈꾸미 집어올리기">
+      <span class="shot-num">05</span>
+      <span class="shot-time">클로즈업</span>
+    </div>
+    <div class="shot-info">
+      <h3>쭈꾸미 집어올리기</h3>
+      <p>완성된 쭈꾸미를 집게로 가득 집어올리는 클로즈업. 붉은 색감과 쭈꾸미 흡반이 포인트.</p>
+      <ul>
+        <li>집게 가득 쭈꾸미 채워서 들어올리기</li>
+        <li>흡반 질감이 보이도록 근접 촬영</li>
+        <li>배경은 솥 전체 살짝 아웃포커스</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Shot 6 -->
+  <div class="shot">
+    <div class="shot-img-wrap">
+      <img src="shot6.jpg" alt="치즈콘 클로즈업">
+      <span class="shot-num">06</span>
+      <span class="shot-time">피날레</span>
+    </div>
+    <div class="shot-info">
+      <h3>치즈콘 클로즈업</h3>
+      <p>치즈콘을 국자로 들어올리는 메인 비주얼. 녹아 흘러내리는 치즈와 쭈꾸미의 조합.</p>
+      <ul>
+        <li>치즈 흘러내리는 타이밍 정확히 포착</li>
+        <li>국자 아래 쭈꾸미도 함께 담기</li>
+        <li>근접 촬영으로 욕망감 최대화</li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+<div class="footer">
+  솥고집 명동점 · 서울특별시 중구 명동길 55 2층<br>
+  촬영 관련 문의: 커넥팅
+</div>
+
+</body>
+</html>
