@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>무드 소품샵 촬영 가이드</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap">
+  <style>
+    :root {
+      --bg: #f7f6f4;
+      --card: #ffffff;
+      --fg: #1a1a1a;
+      --fg2: #777;
+      --border: #e8e6e2;
+      --accent: #c0392b;
+      --accent-soft: #fdf0ef;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--fg); font-family: 'Noto Sans KR', sans-serif; font-size: 15px; padding: 0 16px 40px; }
+
+    header { padding: 28px 0 16px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+    .xmas-tag { display: inline-block; background: var(--accent); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; }
+    header h1 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 4px; }
+    header p { font-size: 0.8rem; color: var(--fg2); }
+
+    .section { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 12px; }
+    .section-title { font-size: 0.7rem; font-weight: 700; color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 12px; }
+
+    .bullet-list { display: flex; flex-direction: column; gap: 8px; }
+    .bullet-item { display: flex; gap: 10px; align-items: flex-start; }
+    .bullet-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); margin-top: 7px; flex-shrink: 0; }
+    .bullet-item p { font-size: 14px; line-height: 1.6; color: #333; }
+
+    .caption-block { background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 12px 14px; margin-bottom: 10px; }
+    .caption-block:last-child { margin-bottom: 0; }
+    .caption-label { font-size: 10px; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+    .caption-block p { font-size: 13px; line-height: 1.8; color: #333; white-space: pre-line; }
+
+    .script-box { background: #fafafa; border-radius: 10px; padding: 14px; }
+    .script-box p { font-size: 14px; line-height: 1.9; color: #333; white-space: pre-line; }
+
+    .product-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+    .product-row:last-of-type { border-bottom: none; }
+    .product-name { font-size: 14px; color: #333; }
+    .product-price { font-size: 14px; font-weight: 700; }
+    .gift-box { background: #fff8e1; border-radius: 8px; padding: 10px 14px; margin-top: 12px; font-size: 13px; font-weight: 600; color: #856404; }
+
+    .ref-link { display: flex; align-items: center; gap: 8px; background: #f8f8f8; border-radius: 10px; padding: 12px 14px; text-decoration: none; color: #0066cc; font-size: 13px; }
+    .ref-link:hover { background: #f0f0f0; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="xmas-tag">🎄 크리스마스</div>
+    <h1>무드 소품샵</h1>
+    <p>📍 마포구 희우정로20길 63 (2호점) · 망원시장</p>
+  </header>
+
+  <div class="section">
+    <div class="section-title">썸네일</div>
+    <div class="bullet-list">
+      <div class="bullet-item">
+        <div class="bullet-dot"></div>
+        <p>크리스마스 트리 앞 또는 크리스마스 분위기가 잘 나는 매대샷</p>
+      </div>
+      <div class="bullet-item">
+        <div class="bullet-dot"></div>
+        <p>크리스마스 소품 3~4개 모아둔 장면</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">캡션</div>
+    <div class="caption-block">
+      <div class="caption-label">옵션 A</div>
+      <p>망원시장 숨겨진(잘 알려지지 않은)
+1500원부터 구매(크리스마스 준비) 가능한 감다살 크리스마스 소품샵</p>
+    </div>
+    <div class="caption-block">
+      <div class="caption-label">옵션 B</div>
+      <p>현시간 망원시장 숨겨진
+가성비 미친 감다살 크리스마스 소품샵
+(1500원부터 구매 가능)</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">스크립트</div>
+    <div class="script-box">
+      <p>망원시장에는 숨겨진
+1500원부터 크리스마스 준비 가능한
+감다살 소품샵이 있는데
+
+크리스마스 소품 1500원부터 구매 가능하고
+요즘 유행하는 옥반지부터 악세서리
+감도 높은 그릇·소품도
+저렴하게 구매 가능한 데다
+
+3만원 이상 구매 시 크리스마스 엽서도 준다니까
+크리스마스 전에 꼭 들려봐야겠는데요?</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">소품 정보</div>
+    <div class="product-row">
+      <div class="product-name">크리스마스 엽서</div>
+      <div class="product-price">1,500원~</div>
+    </div>
+    <div class="product-row">
+      <div class="product-name">크리스마스 캔들</div>
+      <div class="product-price">6,000~16,900원</div>
+    </div>
+    <div class="product-row">
+      <div class="product-name">크리스마스 핸드타월</div>
+      <div class="product-price">12,000원</div>
+    </div>
+    <div class="gift-box">🎁 3만원 이상 구매 시 크리스마스 엽서 증정</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">레퍼런스</div>
+    <a class="ref-link" href="https://www.instagram.com/p/DaopGAOzcCb/" target="_blank">
+      📎 instagram.com/p/DaopGAOzcCb
+    </a>
+  </div>
+
+</body>
+</html>
