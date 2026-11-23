@@ -1,128 +1,210 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>무드 소품샵 촬영 가이드</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f0ee; padding: 20px; color: #111; }
-
-    .header { margin-bottom: 24px; }
-    .tag { display: inline-block; background: #c0392b; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 8px; letter-spacing: 0.5px; }
-    h1 { font-size: 22px; font-weight: 800; line-height: 1.3; margin-bottom: 6px; }
-    .location { font-size: 13px; color: #888; }
-
-    .section { background: #fff; border-radius: 14px; padding: 16px; margin-bottom: 14px; }
-    .section-title { font-size: 12px; font-weight: 700; color: #c0392b; margin-bottom: 10px; letter-spacing: 0.5px; text-transform: uppercase; }
-
-    .thumb-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; }
-    .thumb-item:last-child { margin-bottom: 0; }
-    .dot { width: 6px; height: 6px; border-radius: 50%; background: #c0392b; margin-top: 6px; flex-shrink: 0; }
-    .thumb-item p { font-size: 14px; line-height: 1.6; color: #333; }
-
-    .caption-box { background: #fdf6f5; border-left: 3px solid #c0392b; border-radius: 0 8px 8px 0; padding: 12px 14px; margin-bottom: 10px; }
-    .caption-box:last-child { margin-bottom: 0; }
-    .caption-label { font-size: 10px; color: #c0392b; font-weight: 700; margin-bottom: 6px; }
-    .caption-box p { font-size: 13px; line-height: 1.7; color: #333; white-space: pre-line; }
-
-    .script-box { background: #fafafa; border-radius: 10px; padding: 14px; }
-    .script-box p { font-size: 14px; line-height: 1.8; color: #333; white-space: pre-line; }
-
-    .product-list { }
-    .product-item { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid #f0f0f0; }
-    .product-item:last-child { border-bottom: none; }
-    .product-name { font-size: 14px; color: #333; }
-    .product-price { font-size: 14px; font-weight: 700; color: #111; }
-    .highlight-box { background: #fff8e1; border-radius: 8px; padding: 10px 14px; margin-top: 10px; }
-    .highlight-box p { font-size: 13px; color: #856404; font-weight: 600; }
-
-    .ref-link { display: block; background: #f8f8f8; border-radius: 10px; padding: 12px 14px; text-decoration: none; color: #0066cc; font-size: 13px; word-break: break-all; }
-    .ref-link:hover { background: #f0f0f0; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>망원동 무드 소품샵</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --bg: #f7f6f4;
+    --card: #ffffff;
+    --fg: #1a1a1a;
+    --fg2: #777;
+    --border: #e8e6e2;
+    --accent: #3a5a8c;
+    --accent-soft: #eef2f8;
+    --tag-bg: #fff3cd;
+    --tag-fg: #856404;
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    padding: 0 16px 40px;
+  }
+  header {
+    padding: 28px 0 16px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+  header h1 { margin: 0 0 4px; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; }
+  header p { margin: 0; font-size: 0.8rem; color: var(--fg2); }
+  .summary {
+    display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;
+  }
+  .stat {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 12px 16px; flex: 1; min-width: 100px;
+  }
+  .stat-label { font-size: 0.7rem; color: var(--fg2); letter-spacing: 0.04em; text-transform: uppercase; }
+  .stat-val { font-size: 1.25rem; font-weight: 700; color: var(--accent); margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .cards { display: flex; flex-direction: column; gap: 10px; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .rank {
+    font-size: 0.7rem; font-weight: 700; color: var(--fg2);
+    min-width: 20px; padding-top: 3px;
+  }
+  .info { flex: 1; min-width: 0; }
+  .row1 { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+  .id {
+    font-size: 0.95rem; font-weight: 600; color: var(--fg);
+    text-decoration: none;
+  }
+  .id:hover { color: var(--accent); }
+  .tag {
+    font-size: 0.68rem; font-weight: 600;
+    background: var(--tag-bg); color: var(--tag-fg);
+    padding: 2px 7px; border-radius: 20px;
+  }
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  @media (max-width: 480px) {
+    .metrics { grid-template-columns: repeat(2, 1fr); }
+  }
+  .m { display: flex; flex-direction: column; gap: 2px; }
+  .m-label { font-size: 0.65rem; color: var(--fg2); }
+  .m-val { font-size: 0.88rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .total-row {
+    margin-top: 20px; padding: 16px 20px;
+    background: var(--accent-soft); border-radius: var(--radius);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 8px;
+  }
+  .total-label { font-size: 0.85rem; color: var(--accent); font-weight: 600; }
+  .total-val { font-size: 1.3rem; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+</style>
 </head>
 <body>
 
-  <div class="header">
-    <div class="tag">🎄 크리스마스</div>
-    <h1>무드 소품샵</h1>
-    <div class="location">📍 마포구 희우정로20길 63 (2호점) · 망원시장</div>
-  </div>
+<header>
+  <h1>망원동 무드 소품샵</h1>
+  <p>인플루언서 협상 리스트 · 2026-11-20</p>
+</header>
 
-  <!-- 썸네일 -->
-  <div class="section">
-    <div class="section-title">썸네일</div>
-    <div class="thumb-item">
-      <div class="dot"></div>
-      <p>크리스마스 트리 앞 또는 크리스마스 분위기가 잘 나는 매대샷</p>
-    </div>
-    <div class="thumb-item">
-      <div class="dot"></div>
-      <p>크리스마스 소품 3~4개 모아둔 장면</p>
-    </div>
-  </div>
+<div class="summary">
+  <div class="stat"><div class="stat-label">총 인원</div><div class="stat-val">6명</div></div>
+  <div class="stat"><div class="stat-label">총 단가</div><div class="stat-val">2,100만</div></div>
+  <div class="stat"><div class="stat-label">평균 CPV</div><div class="stat-val">5.9원</div></div>
+</div>
 
-  <!-- 캡션 -->
-  <div class="section">
-    <div class="section-title">캡션 옵션</div>
-    <div class="caption-box">
-      <div class="caption-label">옵션 A</div>
-      <p>망원시장 숨겨진(잘 알려지지 않은)
-1500원부터 구매(크리스마스 준비) 가능한 감다살 크리스마스 소품샵</p>
-    </div>
-    <div class="caption-box">
-      <div class="caption-label">옵션 B</div>
-      <p>현시간 망원시장 숨겨진
-가성비 미친 감다살 크리스마스 소품샵
-(1500원부터 구매 가능)</p>
-    </div>
-  </div>
+<div class="cards">
 
-  <!-- 스크립트 -->
-  <div class="section">
-    <div class="section-title">스크립트</div>
-    <div class="script-box">
-      <p>망원시장에는 숨겨진
-1500원부터 크리스마스 준비 가능한
-감다살 소품샵이 있는데
-
-크리스마스 소품 1500원부터 구매 가능하고
-요즘 유행하는 옥반지부터 악세서리
-감도 높은 그릇·소품도
-저렴하게 구매 가능한 데다
-
-3만원 이상 구매 시 크리스마스 엽서도 준다니까
-크리스마스 전에 꼭 들려봐야겠는데요?</p>
-    </div>
-  </div>
-
-  <!-- 소품 정보 -->
-  <div class="section">
-    <div class="section-title">소품 정보</div>
-    <div class="product-list">
-      <div class="product-item">
-        <div class="product-name">크리스마스 엽서</div>
-        <div class="product-price">1,500원~</div>
+  <div class="card">
+    <div class="rank">01</div>
+    <div class="info">
+      <div class="row1">
+        <a class="id" href="https://www.instagram.com/honey___pick/reels/" target="_blank">honey___pick</a>
+        <span class="tag">협상중</span>
       </div>
-      <div class="product-item">
-        <div class="product-name">크리스마스 캔들</div>
-        <div class="product-price">6,000~16,900원</div>
-      </div>
-      <div class="product-item">
-        <div class="product-name">크리스마스 핸드타월</div>
-        <div class="product-price">12,000원</div>
+      <div class="metrics">
+        <div class="m"><span class="m-label">단가</span><span class="m-val">650,000원</span></div>
+        <div class="m"><span class="m-label">평균조회수</span><span class="m-val">83,467</span></div>
+        <div class="m"><span class="m-label">저장공유단가</span><span class="m-val">1,262</span></div>
+        <div class="m"><span class="m-label">CPV</span><span class="m-val">6.0원</span></div>
       </div>
     </div>
-    <div class="highlight-box">
-      <p>🎁 3만원 이상 구매 시 크리스마스 엽서 증정</p>
+  </div>
+
+  <div class="card">
+    <div class="rank">02</div>
+    <div class="info">
+      <div class="row1">
+        <a class="id" href="https://www.instagram.com/jin_in_place/reels/" target="_blank">jin_in_place</a>
+        <span class="tag">협상중</span>
+      </div>
+      <div class="metrics">
+        <div class="m"><span class="m-label">단가</span><span class="m-val">150,000원</span></div>
+        <div class="m"><span class="m-label">평균조회수</span><span class="m-val">50,400</span></div>
+        <div class="m"><span class="m-label">저장공유단가</span><span class="m-val">1,355</span></div>
+        <div class="m"><span class="m-label">CPV</span><span class="m-val">3.0원</span></div>
+      </div>
     </div>
   </div>
 
-  <!-- 레퍼런스 -->
-  <div class="section">
-    <div class="section-title">레퍼런스</div>
-    <a class="ref-link" href="https://www.instagram.com/p/DaopGAOzcCb/" target="_blank">📎 instagram.com/p/DaopGAOzcCb</a>
+  <div class="card">
+    <div class="rank">03</div>
+    <div class="info">
+      <div class="row1">
+        <a class="id" href="https://www.instagram.com/woonimong/reels/" target="_blank">woonimong</a>
+        <span class="tag">협상중</span>
+      </div>
+      <div class="metrics">
+        <div class="m"><span class="m-label">단가</span><span class="m-val">200,000원</span></div>
+        <div class="m"><span class="m-label">평균조회수</span><span class="m-val">41,900</span></div>
+        <div class="m"><span class="m-label">저장공유단가</span><span class="m-val">778</span></div>
+        <div class="m"><span class="m-label">CPV</span><span class="m-val">4.8원</span></div>
+      </div>
+    </div>
   </div>
+
+  <div class="card">
+    <div class="rank">04</div>
+    <div class="info">
+      <div class="row1">
+        <a class="id" href="https://www.instagram.com/p/DXmN9c_Eay7/" target="_blank">anotherdoor_travel</a>
+        <span class="tag">협상중</span>
+      </div>
+      <div class="metrics">
+        <div class="m"><span class="m-label">단가</span><span class="m-val">350,000원</span></div>
+        <div class="m"><span class="m-label">평균조회수</span><span class="m-val">81,733</span></div>
+        <div class="m"><span class="m-label">저장공유단가</span><span class="m-val">1,001</span></div>
+        <div class="m"><span class="m-label">CPV</span><span class="m-val">4.3원</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="rank">05</div>
+    <div class="info">
+      <div class="row1">
+        <a class="id" href="https://www.instagram.com/rorocouple_trip" target="_blank">rorocouple_trip</a>
+        <span class="tag">협상중</span>
+      </div>
+      <div class="metrics">
+        <div class="m"><span class="m-label">단가</span><span class="m-val">400,000원</span></div>
+        <div class="m"><span class="m-label">평균조회수</span><span class="m-val">52,100</span></div>
+        <div class="m"><span class="m-label">저장공유단가</span><span class="m-val">1,011</span></div>
+        <div class="m"><span class="m-label">CPV</span><span class="m-val">9.6원</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="rank">06</div>
+    <div class="info">
+      <div class="row1">
+        <a class="id" href="https://www.instagram.com/p/DRUA2hGESuz/" target="_blank">ha.liday</a>
+        <span class="tag">협상중</span>
+      </div>
+      <div class="metrics">
+        <div class="m"><span class="m-label">단가</span><span class="m-val">350,000원</span></div>
+        <div class="m"><span class="m-label">평균조회수</span><span class="m-val">43,857</span></div>
+        <div class="m"><span class="m-label">저장공유단가</span><span class="m-val">1,289</span></div>
+        <div class="m"><span class="m-label">CPV</span><span class="m-val">8.0원</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="total-row">
+  <span class="total-label">총 단가 합계</span>
+  <span class="total-val">2,100,000원</span>
+</div>
 
 </body>
 </html>
