@@ -7,67 +7,93 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f0f0; padding: 20px; }
-    h1 { font-size: 17px; font-weight: 700; margin-bottom: 16px; color: #111; }
-    .card { background: #fff; border-radius: 14px; padding: 16px; margin-bottom: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
-    .top { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
-    .date-badge { background: #111; color: #fff; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
-    .status { background: #fff3cd; color: #856404; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 20px; }
-    .id a { font-size: 16px; font-weight: 700; color: #111; text-decoration: none; }
+    h1 { font-size: 17px; font-weight: 700; margin-bottom: 20px; color: #111; }
+
+    .day-group { margin-bottom: 24px; }
+    .day-label { font-size: 13px; font-weight: 700; color: #555; margin-bottom: 10px; letter-spacing: 0.3px; }
+
+    .item { display: flex; gap: 14px; align-items: flex-start; background: #fff; border-radius: 12px; padding: 14px; margin-bottom: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); }
+    .time-col { min-width: 44px; text-align: center; padding-top: 2px; }
+    .time { font-size: 15px; font-weight: 800; color: #111; }
+    .time-sub { font-size: 10px; color: #aaa; }
+    .divider { width: 1px; background: #eee; align-self: stretch; }
+    .info { flex: 1; }
+    .id a { font-size: 15px; font-weight: 700; color: #111; text-decoration: none; }
     .id a:hover { text-decoration: underline; }
-    .link-row { margin: 6px 0 12px; }
-    .link-row a { font-size: 12px; color: #0066cc; word-break: break-all; text-decoration: none; }
+    .link-row { margin: 4px 0 10px; }
+    .link-row a { font-size: 12px; color: #0066cc; text-decoration: none; }
     .link-row a:hover { text-decoration: underline; }
-    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .stat { background: #f8f8f8; border-radius: 8px; padding: 8px 10px; }
-    .stat-label { font-size: 10px; color: #888; margin-bottom: 2px; }
-    .stat-value { font-size: 14px; font-weight: 700; color: #111; }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .stat { background: #f8f8f8; border-radius: 7px; padding: 6px 10px; }
+    .stat-label { font-size: 10px; color: #999; margin-bottom: 1px; }
+    .stat-value { font-size: 13px; font-weight: 700; color: #111; }
+    .status { display: inline-block; background: #fff3cd; color: #856404; font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 20px; margin-bottom: 6px; }
   </style>
 </head>
 <body>
   <h1>📋 촬영 리스트</h1>
 
-  <div class="card">
-    <div class="top">
-      <div class="date-badge">24일 12시</div>
-      <div class="status">협상중</div>
+  <!-- 11월 24일 -->
+  <div class="day-group">
+    <div class="day-label">11월 24일</div>
+
+    <div class="item">
+      <div class="time-col">
+        <div class="time">12시</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info">
+        <div class="status">협상중</div>
+        <div class="id"><a href="https://www.instagram.com/anotherdoor_travel/" target="_blank">@anotherdoor_travel</a></div>
+        <div class="link-row"><a href="https://www.instagram.com/p/DXmN9c_Eay7/" target="_blank">instagram.com/p/DXmN9c_Eay7</a></div>
+        <div class="stats">
+          <div class="stat"><div class="stat-label">단가</div><div class="stat-value">350,000</div></div>
+          <div class="stat"><div class="stat-label">CPV</div><div class="stat-value">4.3</div></div>
+          <div class="stat"><div class="stat-label">평균조회수</div><div class="stat-value">81,733</div></div>
+          <div class="stat"><div class="stat-label">저장공유단가</div><div class="stat-value">1,001</div></div>
+        </div>
+      </div>
     </div>
-    <div class="id"><a href="https://www.instagram.com/anotherdoor_travel/" target="_blank">@anotherdoor_travel</a></div>
-    <div class="link-row"><a href="https://www.instagram.com/p/DXmN9c_Eay7/" target="_blank">instagram.com/p/DXmN9c_Eay7</a></div>
-    <div class="stats">
-      <div class="stat"><div class="stat-label">단가</div><div class="stat-value">350,000</div></div>
-      <div class="stat"><div class="stat-label">CPV</div><div class="stat-value">4.3</div></div>
-      <div class="stat"><div class="stat-label">평균조회수</div><div class="stat-value">81,733</div></div>
-      <div class="stat"><div class="stat-label">저장공유단가</div><div class="stat-value">1,001</div></div>
+
+    <div class="item">
+      <div class="time-col">
+        <div class="time">2시</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info">
+        <div class="status">협상중</div>
+        <div class="id"><a href="https://www.instagram.com/rorocouple_trip/" target="_blank">@rorocouple_trip</a></div>
+        <div class="link-row"><a href="https://www.instagram.com/rorocouple_trip?igsh=MTNvdzI0Z2pqcXZvYw%3D%3D" target="_blank">instagram.com/rorocouple_trip</a></div>
+        <div class="stats">
+          <div class="stat"><div class="stat-label">단가</div><div class="stat-value">500,000</div></div>
+          <div class="stat"><div class="stat-label">CPV</div><div class="stat-value">9.6</div></div>
+          <div class="stat"><div class="stat-label">평균조회수</div><div class="stat-value">52,100</div></div>
+          <div class="stat"><div class="stat-label">저장공유단가</div><div class="stat-value">1,011</div></div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="card">
-    <div class="top">
-      <div class="date-badge">24일 2시</div>
-      <div class="status">협상중</div>
-    </div>
-    <div class="id"><a href="https://www.instagram.com/rorocouple_trip/" target="_blank">@rorocouple_trip</a></div>
-    <div class="link-row"><a href="https://www.instagram.com/rorocouple_trip?igsh=MTNvdzI0Z2pqcXZvYw%3D%3D" target="_blank">instagram.com/rorocouple_trip</a></div>
-    <div class="stats">
-      <div class="stat"><div class="stat-label">단가</div><div class="stat-value">500,000</div></div>
-      <div class="stat"><div class="stat-label">CPV</div><div class="stat-value">9.6</div></div>
-      <div class="stat"><div class="stat-label">평균조회수</div><div class="stat-value">52,100</div></div>
-      <div class="stat"><div class="stat-label">저장공유단가</div><div class="stat-value">1,011</div></div>
-    </div>
-  </div>
+  <!-- 11월 28일 -->
+  <div class="day-group">
+    <div class="day-label">11월 28일</div>
 
-  <div class="card">
-    <div class="top">
-      <div class="date-badge">28일 2시</div>
-      <div class="status">협상중</div>
-    </div>
-    <div class="id"><a href="https://www.instagram.com/honey___pick/" target="_blank">@honey___pick</a></div>
-    <div class="link-row"><a href="https://www.instagram.com/honey___pick/reels/" target="_blank">instagram.com/honey___pick/reels</a></div>
-    <div class="stats">
-      <div class="stat"><div class="stat-label">단가</div><div class="stat-value">600,000</div></div>
-      <div class="stat"><div class="stat-label">CPV</div><div class="stat-value">6.0</div></div>
-      <div class="stat"><div class="stat-label">평균조회수</div><div class="stat-value">83,467</div></div>
-      <div class="stat"><div class="stat-label">저장공유단가</div><div class="stat-value">1,262</div></div>
+    <div class="item">
+      <div class="time-col">
+        <div class="time">2시</div>
+      </div>
+      <div class="divider"></div>
+      <div class="info">
+        <div class="status">협상중</div>
+        <div class="id"><a href="https://www.instagram.com/honey___pick/" target="_blank">@honey___pick</a></div>
+        <div class="link-row"><a href="https://www.instagram.com/honey___pick/reels/" target="_blank">instagram.com/honey___pick/reels</a></div>
+        <div class="stats">
+          <div class="stat"><div class="stat-label">단가</div><div class="stat-value">600,000</div></div>
+          <div class="stat"><div class="stat-label">CPV</div><div class="stat-value">6.0</div></div>
+          <div class="stat"><div class="stat-label">평균조회수</div><div class="stat-value">83,467</div></div>
+          <div class="stat"><div class="stat-label">저장공유단가</div><div class="stat-value">1,262</div></div>
+        </div>
+      </div>
     </div>
   </div>
 
